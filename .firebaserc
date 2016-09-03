@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "intro-to-reactive-js"
+    "default": "intro-to-reactive-js",
+    "reactive-js": "reactive-js"
   }
 }
