@@ -1,7 +1,7 @@
 # Suncoast.js
 
-## Introduction to Cycle.js (Sept 6, 2016)
+## Introduction to Reactive Programming in JS (Sept 6, 2016)
 
-[ ![Codeship Status for suncoastjs/intro-to-cyclejs](https://codeship.com/projects/3e2c7940-4790-0134-1536-7274acc1ec8c/status?branch=master)](https://codeship.com/projects/169226)
+[ ![Codeship Status for suncoastjs/intro-to-cyclejs](https://codeship.com/projects/0ddfeac0-5451-0134-936b-4ab5dfe4e53b/status?branch=master)](https://codeship.com/projects/171913)
 
-https://intro-to-cyclejs.firebaseapp.com
+https://reactive-js.firebaseapp.com
