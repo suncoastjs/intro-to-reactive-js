@@ -68,11 +68,6 @@ class Presentation extends Component {
         <Deck transition={['zoom', 'spin']} transitionDuration={500}>
           <Slide transition={['zoom']} bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
-              Testing...
-            </Heading>
-          </Slide>
-          <Slide transition={['zoom']} bgColor='tertiary'>
-            <Heading size={1} caps fit textColor='primary' textFont='primary'>
               Intro to Reactive
             </Heading>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
