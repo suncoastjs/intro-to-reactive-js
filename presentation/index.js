@@ -58,7 +58,8 @@ const urls = {
 const images = {
   cyclePatternDiagram: require('../assets/img/cycle-pattern-diagram.png').replace('/', ''),
   cycleTitleScreen: require('../assets/img/cycle-title-screen.png').replace('/', ''),
-  humanComputerDiagram: require('../assets/img/human-computer-diagram.png').replace('/', ''),
+  humanComputerDiagram01: require('../assets/img/human-computer-diagram-01.png').replace('/', ''),
+  humanComputerDiagram02: require('../assets/img/human-computer-diagram-02.png').replace('/', ''),
   mainDomDiagram: require('../assets/img/main-dom-diagram.png').replace('/', ''),
 }
 
@@ -156,7 +157,10 @@ class Presentation extends Component {
             <Image src={images.cyclePatternDiagram} margin='-50px auto 0 -50px' />
           </Slide>
           <Slide bgColor='secondary'>
-            <Image src={images.humanComputerDiagram} margin='-50px auto 0 -170px' />
+            <Image src={images.humanComputerDiagram01} margin='-120px auto 0' />
+          </Slide>
+          <Slide bgColor='secondary'>
+            <Image src={images.humanComputerDiagram02} margin='-50px auto 0 -170px' />
           </Slide>
           <Slide bgColor='secondary'>
             <Image src={images.mainDomDiagram} margin='-110px auto 0 -100px' />
