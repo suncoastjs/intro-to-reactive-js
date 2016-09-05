@@ -11,7 +11,7 @@ import {
   Deck,
   //  Fill,
   Heading,
-  // Image,
+  Image,
   //  Layout,
   //  Link,
   ListItem,
@@ -55,68 +55,111 @@ const urls = {
   suncoastJsTwitter: 'https://twitter.com/@suncoastjs',
 }
 
+const images = {
+  cyclePatternDiagram: require('../assets/img/cycle-pattern-diagram.png').replace('/', ''),
+  cycleTitleScreen: require('../assets/img/cycle-title-screen.png').replace('/', ''),
+  humanComputerDiagram: require('../assets/img/human-computer-diagram.png').replace('/', ''),
+  mainDomDiagram: require('../assets/img/main-dom-diagram.png').replace('/', ''),
+}
+
 const theme = createTheme({
   primary: '#58D3D8',
   secondary: '#FFF',
-  tertiary: '#000',
+  tertiary: '#24242D',
+  quaternary: '#C6FC93',
 })
+
+const styles = {
+  listItemTitle: {
+    listStyleType: 'none',
+    textAlign: 'center',
+  },
+}
 
 class Presentation extends Component {
   render () {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={['zoom', 'spin']} transitionDuration={500}>
-          <Slide transition={['zoom']} bgColor='tertiary'>
+        <Deck transition={['zoom']} transitionDuration={500}>
+          <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
-              Intro to Reactive
+              Introduction to Reactive
             </Heading>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
-              Programming in JS
+              Programming in JavaScript
             </Heading>
             <Appear>
               <List>
-                <ListItem>
+                <ListItem style={styles.listItemTitle}>
                   For <a target='_blank' href={urls.suncoastJs}>Suncoast.js</a>,&nbsp;
                   Twitter: <a target='_blank' href={urls.suncoastJsTwitter}>@suncoastjs</a>
                 </ListItem>
               </List>
             </Appear>
           </Slide>
-          <Slide transition={['zoom']} bgColor='tertiary'>
-            <Heading size={1} caps fit textColor='primary' textFont='primary'>
-              Part 1: Intro to RxJS
+          <Slide bgColor='primary'>
+            <Heading size={1} caps fit textColor='secondary' textFont='primary'>
+              Part 1
             </Heading>
           </Slide>
-          <Slide transition={['zoom']} bgColor='tertiary'>
+          <Slide bgColor='primary'>
+            <Heading size={1} caps fit textColor='secondary' textFont='primary'>
+              Introduction to
+            </Heading>
+            <Heading size={1} caps fit textColor='quaternary' textFont='primary'>
+              &nbsp;&nbsp;RxJS&nbsp;&nbsp;
+            </Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               By Adam Recvlohe
             </Heading>
-            <List>
-              <Appear>
-                <ListItem>
+            <Appear>
+              <List>
+                <ListItem style={styles.listItemTitle}>
                   Twitter: <a target='_blank' href={urls.adamTwitter}>@arecvlohe</a>,&nbsp;
                   GitHub: <a target='_blank' href={urls.adamGithub}>@adamrecvlohe</a>
                 </ListItem>
-              </Appear>
-            </List>
+              </List>
+            </Appear>
           </Slide>
-          <Slide transition={['zoom']} bgColor='tertiary'>
-            <Heading size={1} caps fit textColor='primary' textFont='primary'>
-              Part 2: Intro to Cycle.js
+          <Slide bgColor='primary'>
+            <Heading size={1} caps fit textColor='secondary' textFont='primary'>
+              Part 2
             </Heading>
           </Slide>
-          <Slide transition={['zoom']} bgColor='tertiary'>
+          <Slide bgColor='primary'>
+            <Heading size={1} caps fit textColor='secondary' textFont='primary'>
+              Introduction to
+            </Heading>
+            <Heading size={1} caps fit textColor='quaternary' textFont='primary'>
+              Cycle.js
+            </Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               By Josh Burgess
             </Heading>
-            <List>
-              <Appear>
-                <ListItem>
+            <Appear>
+              <List>
+                <ListItem style={styles.listItemTitle}>
                   Twitter: <a target='_blank' href={urls.joshTwitter}>@_joshburgess</a>,&nbsp;
                   GitHub: <a target='_blank' href={urls.joshGitHub}>@joshburgess</a>
                 </ListItem>
-              </Appear>
-            </List>
+              </List>
+            </Appear>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Image src={images.cycleTitleScreen} margin='-80px auto 0 -120px' />
+          </Slide>
+          <Slide bgColor='secondary'>
+            <Image src={images.cyclePatternDiagram} margin='-50px auto 0 -50px' />
+          </Slide>
+          <Slide bgColor='secondary'>
+            <Image src={images.humanComputerDiagram} margin='-50px auto 0 -170px' />
+          </Slide>
+          <Slide bgColor='secondary'>
+            <Image src={images.mainDomDiagram} margin='-110px auto 0 -100px' />
           </Slide>
         </Deck>
       </Spectacle>
