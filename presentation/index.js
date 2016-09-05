@@ -89,14 +89,12 @@ class Presentation extends Component {
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               Programming in JavaScript
             </Heading>
-            <Appear>
-              <List>
-                <ListItem style={styles.listItemTitle}>
-                  For <a target='_blank' href={urls.suncoastJs}>Suncoast.js</a>,&nbsp;
-                  Twitter: <a target='_blank' href={urls.suncoastJsTwitter}>@suncoastjs</a>
-                </ListItem>
-              </List>
-            </Appear>
+            <List>
+              <ListItem style={styles.listItemTitle}>
+                For <a target='_blank' href={urls.suncoastJs}>Suncoast.js</a>,&nbsp;
+                Twitter: <a target='_blank' href={urls.suncoastJsTwitter}>@suncoastjs</a>
+              </ListItem>
+            </List>
           </Slide>
           <Slide bgColor='primary'>
             <Heading size={1} caps fit textColor='secondary' textFont='primary'>
@@ -115,14 +113,12 @@ class Presentation extends Component {
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               By Adam Recvlohe
             </Heading>
-            <Appear>
-              <List>
-                <ListItem style={styles.listItemTitle}>
-                  Twitter: <a target='_blank' href={urls.adamTwitter}>@arecvlohe</a>,&nbsp;
-                  GitHub: <a target='_blank' href={urls.adamGithub}>@adamrecvlohe</a>
-                </ListItem>
-              </List>
-            </Appear>
+            <List>
+              <ListItem style={styles.listItemTitle}>
+                Twitter: <a target='_blank' href={urls.adamTwitter}>@arecvlohe</a>,&nbsp;
+                GitHub: <a target='_blank' href={urls.adamGithub}>@adamrecvlohe</a>
+              </ListItem>
+            </List>
           </Slide>
           <Slide bgColor='primary'>
             <Heading size={1} caps fit textColor='secondary' textFont='primary'>
@@ -141,14 +137,12 @@ class Presentation extends Component {
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               By Josh Burgess
             </Heading>
-            <Appear>
-              <List>
-                <ListItem style={styles.listItemTitle}>
-                  Twitter: <a target='_blank' href={urls.joshTwitter}>@_joshburgess</a>,&nbsp;
-                  GitHub: <a target='_blank' href={urls.joshGitHub}>@joshburgess</a>
-                </ListItem>
-              </List>
-            </Appear>
+            <List>
+              <ListItem style={styles.listItemTitle}>
+                Twitter: <a target='_blank' href={urls.joshTwitter}>@_joshburgess</a>,&nbsp;
+                GitHub: <a target='_blank' href={urls.joshGitHub}>@joshburgess</a>
+              </ListItem>
+            </List>
           </Slide>
           <Slide bgColor='tertiary'>
             <Image src={images.cycleTitleScreen} margin='-80px auto 0 -120px' />
