@@ -46,12 +46,15 @@ const urls = {
   bmiCalculatorDemo: 'https://jsbin.com/rucone/3/edit?output',
   counterDataFlow: 'https://glebbahmutov.com/draw-cycle/',
   counterDemo: 'https://jsbin.com/cimofe/3/edit?output',
+  cycleDevToolChrome: 'https://chrome.google.com/webstore/detail/cyclejs/dfgplfmhhmdekalbpejekgfegkonjpfp',
+  cycleDevToolGitHub: 'https://github.com/cyclejs/cyclejs/tree/master/devtool',
   futureDeclaredInVar: 'https://www.youtube.com/watch?v=BfZpr0USIi4',
   joshTwitter: 'https://twitter.com/_joshburgess',
   joshGitHub: 'https://github.com/joshburgess',
   problemsWithReactRedux: 'http://staltz.com/some-problems-with-react-redux.html',
   suncoastJs: 'http://www.meetup.com/suncoast-js/',
   suncoastJsTwitter: 'https://twitter.com/@suncoastjs',
+  unidirectionalUIArchitectures: 'http://staltz.com/unidirectional-user-interface-architectures.html',
 }
 
 const images = {
@@ -60,6 +63,7 @@ const images = {
   cycleLogo: require('../assets/img/cycle-logo.png').replace('/', ''),
   cyclePatternDiagram: require('../assets/img/cycle-pattern-diagram.png').replace('/', ''),
   cycleTitleScreen: require('../assets/img/cycle-title-screen.png').replace('/', ''),
+  end: require('../assets/img/end.jpg').replace('/', ''),
   everythingStream: require('../assets/img/everything-stream.jpg').replace('/', ''),
   humanComputerDiagram01: require('../assets/img/human-computer-diagram-01.png').replace('/', ''),
   humanComputerDiagram02: require('../assets/img/human-computer-diagram-02.png').replace('/', ''),
@@ -114,6 +118,16 @@ const operators = `
   - Many of the operators in RxJS may look familiar
   - Example: map, concat, every, scan
 `
+
+// const learningResources = `
+//   ## Learning Resources!
+//
+//   - [@BenLesh](https://twitter.com/benlesh?lang=en)
+//   - [@AndreStaltz](https://twitter.com/andrestaltz)
+//   - [@MattPodwysocki](https://twitter.com/mattpodwysocki)
+//   - [@headinthebox](https://twitter.com/headinthebox)
+// `
+
 class Presentation extends Component {
   render () {
     return (
@@ -673,12 +687,42 @@ class Presentation extends Component {
             <Image src={images.modelViewIntentDiagram} margin='-60px auto 0 -60px' height={700} />
           </Slide>
           <Slide bgColor='tertiary'>
-            <Heading size={1} caps fit textColor='primary' textFont='primary'>One last thing: The Cycle.js DevTool</Heading>
-            <a href='https://github.com/cyclejs/cyclejs/tree/master/devtool'>On GitHub</a>
-            <a href='https://chrome.google.com/webstore/detail/cyclejs/dfgplfmhhmdekalbpejekgfegkonjpfp'>Chrome Extension</a>
+            <BlockQuote textColor='primary'>
+              <Quote>
+                A unidirectional architecture is said to be <b>fractal</b> if subcomponents are structured in the same way as the whole is.
+              </Quote>
+              <Cite textColor='primary'>Andre Staltz</Cite>
+            </BlockQuote>
+            <List style={styles.listItemNoBulletPoint}>
+              <Appear>
+                <ListItem>
+                  Blog Post: <a
+                    size={1}
+                    fit
+                    href={urls.unidirectionalUIArchitectures}
+                  >
+                  Unidirectional User Interface Architectures
+                  </a>
+                </ListItem>
+              </Appear>
+            </List>
           </Slide>
-          <Slide bgColor='rgb(245, 244, 240)'>
-            <Image src={images.cycleDevTool} margin='-60px auto 0 -60px' height={700} />
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>One last thing: The Cycle.js DevTool</Heading>
+            <List>
+              <ListItem textColor='secondary'>
+                <a href={urls.cycleDevToolGitHub}>GitHub</a>
+              </ListItem>
+              <ListItem textColor='secondary'>
+                <a href={urls.cycleDevToolChrome}>Chrome Extension</a>
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide bgColor='secondary'>
+            <Image src={images.cycleDevTool} margin='-60px auto 0 -20px' height={600} />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Image src={images.end} margin='0 auto' />
           </Slide>
         </Deck>
       </Spectacle>
