@@ -70,6 +70,7 @@ const images = {
   mindBlown: require('../assets/img/mind-blown.gif').replace('/', ''),
   modelViewIntent: require('../assets/img/model-view-intent.jpg').replace('/', ''),
   staltz: require('../assets/img/staltz.jpg').replace('/', ''),
+  yoda: require('../assets/img/yoda.jpg').replace('/', ''),
 }
 
 const theme = createTheme({
@@ -198,10 +199,25 @@ class Presentation extends Component {
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
+            <Heading textColor='primary'>What is reactive programming?</Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <BlockQuote textColor='primary'>
+              <Quote>
+                Reactive programming is programming with asynchronous data streams.
+              </Quote>
+              <Cite textColor='primary'>Andre Staltz</Cite>
+            </BlockQuote>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Image src={images.yoda} margin='-80px auto 0 -120px' />
+          </Slide>
+          <Slide bgColor='tertiary'>
             <BlockQuote>
               <Quote textColor='primary'>
                 When you iterate over an array you are pulling values out. Reactive programming is about pushing values.
               </Quote>
+              <Cite textColor='primary'>Erik Meijer</Cite>
             </BlockQuote>
           </Slide>
           <Slide bgColor='tertiary'>
