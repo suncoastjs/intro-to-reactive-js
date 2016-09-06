@@ -7,7 +7,7 @@ import {
   // Appear,
   BlockQuote,
   Cite,
-  // CodePane,
+  CodePane,
   Deck,
   //  Fill,
   Heading,
@@ -78,7 +78,7 @@ const styles = {
 }
 
 const references = `
-  ## My Reading Materials
+  ## Lite reads
 
   -  [**Learning Observable By Building Observable**](https://medium.com/@benlesh/learning-observable-by-building-observable-d5da57405d87#.nme5giluq)
   -  [**Hot vs Cold Observables**](https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339#.7aen7c7nm)
@@ -87,13 +87,18 @@ const references = `
 `
 
 const follow = `
-  ## Follow these amazing people on Twitter!
+  ## Follow!
 
   - [@BenLesh](https://twitter.com/benlesh?lang=en)
   - [@AndreStaltz](https://twitter.com/andrestaltz)
   - [@MattPodwysocki](https://twitter.com/mattpodwysocki)
 `
 
+const operators = `
+  - Observables behave similarly to arrays in JS
+  - Many of the operators in RxJS may look familiar
+  - Example: map, concat, every, scan
+`
 class Presentation extends Component {
   render () {
     return (
@@ -146,15 +151,15 @@ class Presentation extends Component {
             <Text textColor='primary'>Some Info on the Not So Obvious</Text>
             <List>
               <ListItem textColor='primary'>RxJS stands for Reactive Extensions for JavaScript</ListItem>
-              <ListItem textColor='primary'>Inspired by linq.js ... basically .NET in JS</ListItem>
-              <ListItem textColor='primary'>Erik Meijer (@headinthebox) created Rx</ListItem>
+              <ListItem textColor='primary'>Inspired by linq.js</ListItem>
+              <ListItem textColor='primary'>Erik Meijer (@headinthebox) created LINQ and Rx</ListItem>
               <ListItem textColor='primary'>Matthew Podwysocki (@mattpodwysocki) ported Rx to RxJS</ListItem>
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
             <BlockQuote>
               <Quote textColor='primary'>
-                When you iterate over an array you are pulling values out. Reactive programming is about pushing/producing those values.
+                When you iterate over an array you are pulling values out. Reactive programming is about pushing values.
               </Quote>
             </BlockQuote>
           </Slide>
@@ -189,16 +194,15 @@ class Presentation extends Component {
             <Heading textColor='primary'>Observables and Operators</Heading>
           </Slide>
           <Slide bgColor='tertiary'>
-            <Text caps textColor='primary'>Observable</Text>
-            <List>
-              <ListItem textColor='primary'>fromEvent(element, event) => Observable</ListItem>
-            </List>
-            <Text caps textColor='primary'>Operators</Text>
-            <List textColor='primary'>
-              <ListItem>mapTo(Observable) => Observable</ListItem>
-              <ListItem>merge(Observable1, Observable2, etc.) => Observable</ListItem>
-              <ListItem>scan(accumulator, Observable) => Observable </ListItem>
-            </List>
+            <Markdown source={operators} />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading textColor='primary'>Let me preface</Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <CodePane
+              lang='js'
+              source={require('raw!../assets/code_slides/operators.example')} />
           </Slide>
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>Coding Time!</Heading>
@@ -224,6 +228,9 @@ class Presentation extends Component {
             <Quote>
               When your observable creates the producer, your observable is cold. When your producer is created outside of a subscription your observable is hot.
             </Quote>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading textColor='primary'>Let's make it hot!</Heading>
           </Slide>
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>Coding Time!</Heading>

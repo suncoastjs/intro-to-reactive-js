@@ -8,10 +8,10 @@ div.style.width = '100vw'
 div.style.height = '100vh'
 document.body.appendChild(div)
 
-// Create observable from mouse move events
+// Create an observable from mouse move events
 const moves = Observable.fromEvent(div, 'mousemove')
 
-// Use the map operator to tranform the event object
+// Use the map operator to transform the event object
 const transform = moves.map(x =>
   ({ x: x.clientX, y: x.clientY })
 )
