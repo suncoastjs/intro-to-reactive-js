@@ -119,14 +119,17 @@ const operators = `
   - Example: map, concat, every, scan
 `
 
-// const learningResources = `
-//   ## Learning Resources!
-//
-//   - [@BenLesh](https://twitter.com/benlesh?lang=en)
-//   - [@AndreStaltz](https://twitter.com/andrestaltz)
-//   - [@MattPodwysocki](https://twitter.com/mattpodwysocki)
-//   - [@headinthebox](https://twitter.com/headinthebox)
-// `
+const learningResources = `
+  ## Learning Resources:
+
+  - [Cycle.js Fundamentals](https://egghead.io/courses/cycle-js-fundamentals)
+  - [Introduction to Reactive Programming](https://egghead.io/courses/introduction-to-reactive-programming)
+  - [Step-by-Step Async JavaScript with RxJS](https://egghead.io/courses/step-by-step-async-javascript-with-rxjs)
+  - [RxJS Beyond the Basics: Operators in Depth](https://egghead.io/courses/rxjs-beyond-the-basics-operators-in-depth)
+  - [RxJS Beyond the Basics: Creating Observables from Scratch](https://egghead.io/courses/rxjs-beyond-the-basics-creating-observables-from-scratch)
+  - [ReactiveX.io Intro](http://reactivex.io/)
+  - [RxMarbles: Interactive diagrams of Rx Observables](http://rxmarbles.com/)
+`
 
 class Presentation extends Component {
   render () {
@@ -706,6 +709,9 @@ class Presentation extends Component {
                 </ListItem>
               </Appear>
             </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Markdown source={learningResources} />
           </Slide>
           <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>One last thing: The Cycle.js DevTool</Heading>
