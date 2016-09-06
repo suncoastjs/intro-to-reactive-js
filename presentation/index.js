@@ -210,9 +210,6 @@ class Presentation extends Component {
             </BlockQuote>
           </Slide>
           <Slide bgColor='tertiary'>
-            <Image src={images.yoda} margin='-80px auto 0 -120px' />
-          </Slide>
-          <Slide bgColor='tertiary'>
             <BlockQuote>
               <Quote textColor='primary'>
                 When you iterate over an array you are pulling values out. Reactive programming is about pushing values.
@@ -287,6 +284,7 @@ class Presentation extends Component {
             <Quote>
               When your observable creates the producer, your observable is cold. When your producer is created outside of a subscription your observable is hot.
             </Quote>
+            <Cite textColor='primary'>Ben Lesh</Cite>
           </Slide>
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>Let's make it hot!</Heading>
@@ -306,6 +304,9 @@ class Presentation extends Component {
               { loc: [18, 26] },
             ]}
           />
+          <Slide bgColor='tertiary'>
+            <Image src={images.yoda} margin='-80px auto 0 -120px' />
+          </Slide>
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>References</Heading>
           </Slide>
