@@ -161,29 +161,39 @@ class Presentation extends Component {
           </Slide>
           <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='secondary' textFont='primary'>
-               Some Info on the Not So Obvious
+               Rx People & Companies
             </Heading>
             <List>
               <Appear>
-                <ListItem textColor='primary'>RxJS = Reactive Extensions for JavaScript</ListItem>
+                <ListItem textColor='primary'>RxJS stands for Reactive Extensions for JavaScript</ListItem>
               </Appear>
               <Appear>
-                <ListItem textColor='primary'>Reactive Extensions originated in .NET (Rx.NET)</ListItem>
+                <ListItem textColor='primary'>Reactive Extensions originated at Microsoft (<b>Rx.NET</b>)</ListItem>
               </Appear>
               <Appear>
-                <ListItem textColor='primary'>Created by Erik Meijer (@headinthebox)</ListItem>
-              </Appear>
-              {/* <Appear>
-                <ListItem textColor='primary'>He also worked on RxJava (Netflix) & streams in Dart (Google)</ListItem>
-              </Appear> */}
-              <Appear>
-                <ListItem textColor='primary'>Ported to JS by Matthew Podwysocki (@mattpodwysocki)</ListItem>
+                <ListItem textColor='primary'>Rx was created by <b>Erik Meijer</b> (@headinthebox), a programming language icon who has also worked on <b>LINQ</b>, <b>RxJava</b> (Netflix), <b>streams in Dart</b> (Google), & <b>Hack</b> (Facebook)</ListItem>
               </Appear>
               <Appear>
-                <ListItem textColor='primary'>Like C#'s LINQ, but push-based, not pull-based</ListItem>
+                <ListItem textColor='primary'>RxJS by <b>Matt Podwysocki</b> (@mattpodwysocki) of Microsoft</ListItem>
               </Appear>
               <Appear>
-                <ListItem textColor='primary'>Like map, filter, & reduce in JS, but async over time</ListItem>
+                <ListItem textColor='primary'>Recently rewritten by <b>Ben Lesh</b> (@benlesh) of Netflix as RxJS 5</ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='secondary' textFont='primary'>
+               The Concept of Rx
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem textColor='primary'>Similar to C#'s LINQ and functions like map, filter, & reduce in JS, but with two main differences:</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='primary'>1. <b>Push-based</b> instead of pull-based</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='primary'>2. <b>Asynchronous</b> instead of synchronous</ListItem>
               </Appear>
             </List>
           </Slide>
