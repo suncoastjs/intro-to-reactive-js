@@ -51,7 +51,7 @@ function view (state$) {
         ]),
         h2('BMI is ' + state.bmi)
       ])
-    );
+    )
 }
 
 function main (sources) {
