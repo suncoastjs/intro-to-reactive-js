@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 
 // Import Spectacle Core tags
 import {
-  // Appear,
+  Appear,
   BlockQuote,
   Cite,
   // CodePane,
@@ -13,7 +13,7 @@ import {
   Heading,
   Image,
   //  Layout,
-  //  Link,
+  // Link,
   ListItem,
   List,
   Markdown,
@@ -49,18 +49,27 @@ require('../assets/css/presentation-styles.css')
 const urls = {
   adamTwitter: 'https://twitter.com/adamrecvlohe',
   adamGitHub: 'https://github.com/arecvlohe',
+  futureDeclaredInVar: 'https://www.youtube.com/watch?v=BfZpr0USIi4',
   joshTwitter: 'https://twitter.com/_joshburgess',
   joshGitHub: 'https://github.com/joshburgess',
+  problemsWithReactRedux: 'http://staltz.com/some-problems-with-react-redux.html',
   suncoastJs: 'http://www.meetup.com/suncoast-js/',
   suncoastJsTwitter: 'https://twitter.com/@suncoastjs',
 }
 
 const images = {
+  cycleComponent: require('../assets/img/cycle-component.png').replace('/', ''),
+  cycleLogo: require('../assets/img/cycle-logo.png').replace('/', ''),
   cyclePatternDiagram: require('../assets/img/cycle-pattern-diagram.png').replace('/', ''),
   cycleTitleScreen: require('../assets/img/cycle-title-screen.png').replace('/', ''),
+  everythingStream: require('../assets/img/everything-stream.jpg').replace('/', ''),
   humanComputerDiagram01: require('../assets/img/human-computer-diagram-01.png').replace('/', ''),
   humanComputerDiagram02: require('../assets/img/human-computer-diagram-02.png').replace('/', ''),
+  interesting: require('../assets/img/interesting.jpg').replace('/', ''),
   mainDomDiagram: require('../assets/img/main-dom-diagram.png').replace('/', ''),
+  mindBlown: require('../assets/img/mind-blown.gif').replace('/', ''),
+  modelViewIntent: require('../assets/img/model-view-intent.jpg').replace('/', ''),
+  staltz: require('../assets/img/staltz.jpg').replace('/', ''),
 }
 
 const theme = createTheme({
@@ -74,6 +83,9 @@ const styles = {
   listItemTitle: {
     listStyleType: 'none',
     textAlign: 'center',
+  },
+  listItemNoBulletPoint: {
+    listStyleType: 'none',
   },
 }
 
@@ -106,8 +118,8 @@ class Presentation extends Component {
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               Programming in JavaScript
             </Heading>
-            <List>
-              <ListItem style={styles.listItemTitle}>
+            <List style={styles.listItemTitle}>
+              <ListItem>
                 For <a target='_blank' href={urls.suncoastJs}>Suncoast.js</a>,&nbsp;
                 Twitter: <a target='_blank' href={urls.suncoastJsTwitter}>@suncoastjs</a>
               </ListItem>
@@ -130,8 +142,8 @@ class Presentation extends Component {
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               By Adam Recvlohe
             </Heading>
-            <List>
-              <ListItem style={styles.listItemTitle}>
+            <List style={styles.listItemTitle}>
+              <ListItem>
                 Twitter: <a target='_blank' href={urls.adamTwitter}>@arecvlohe</a>,&nbsp;
                 GitHub: <a target='_blank' href={urls.adamGithub}>@adamrecvlohe</a>
               </ListItem>
@@ -143,12 +155,31 @@ class Presentation extends Component {
             <Heading size={1} textColor='primary'>Background</Heading>
           </Slide>
           <Slide bgColor='tertiary'>
-            <Text textColor='primary'>Some Info on the Not So Obvious</Text>
+            <Heading size={1} caps fit textColor='secondary' textFont='primary'>
+               Some Info on the Not So Obvious
+            </Heading>
             <List>
-              <ListItem textColor='primary'>RxJS stands for Reactive Extensions for JavaScript</ListItem>
-              <ListItem textColor='primary'>Inspired by linq.js ... basically .NET in JS</ListItem>
-              <ListItem textColor='primary'>Erik Meijer (@headinthebox) created Rx</ListItem>
-              <ListItem textColor='primary'>Matthew Podwysocki (@mattpodwysocki) ported Rx to RxJS</ListItem>
+              <Appear>
+                <ListItem textColor='primary'>RxJS = Reactive Extensions for JavaScript</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='primary'>Reactive Extensions originated in .NET (Rx.NET)</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='primary'>Created by Erik Meijer (@headinthebox)</ListItem>
+              </Appear>
+              {/* <Appear>
+                <ListItem textColor='primary'>He also worked on RxJava (Netflix) & streams in Dart (Google)</ListItem>
+              </Appear> */}
+              <Appear>
+                <ListItem textColor='primary'>Ported to JS by Matthew Podwysocki (@mattpodwysocki)</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='primary'>Like C#'s LINQ, but push-based, not pull-based</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='primary'>Like map, filter, & reduce in JS, but async over time</ListItem>
+              </Appear>
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
@@ -184,7 +215,8 @@ class Presentation extends Component {
               { loc: [12, 18], note: `Let's now produce some values` },
               { loc: [19, 24], note: 'And we can tell our observer how we will compute/transform those values' },
               { loc: [25, 29], note: 'If we call our function...' },
-            ]} />
+            ]}
+          />
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>Observables and Operators</Heading>
           </Slide>
@@ -216,7 +248,8 @@ class Presentation extends Component {
               { loc: [27, 29] },
               { loc: [30, 32] },
               { loc: [33, 39] },
-            ]} />
+            ]}
+          />
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>Hot vs Cold</Heading>
           </Slide>
@@ -238,7 +271,8 @@ class Presentation extends Component {
               { loc: [10, 12] },
               { loc: [13, 17] },
               { loc: [18, 26] },
-            ]} />
+            ]}
+          />
           <Slide bgColor='tertiary'>
             <Heading textColor='primary'>References</Heading>
           </Slide>
@@ -265,15 +299,137 @@ class Presentation extends Component {
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
               By Josh Burgess
             </Heading>
-            <List>
-              <ListItem style={styles.listItemTitle}>
+            <List style={styles.listItemTitle}>
+              <ListItem>
                 Twitter: <a target='_blank' href={urls.joshTwitter}>@_joshburgess</a>,&nbsp;
                 GitHub: <a target='_blank' href={urls.joshGitHub}>@joshburgess</a>
               </ListItem>
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
+            <Image src={images.cycleLogo} margin='0 auto 0 auto' />
+          </Slide>
+          <Slide bgColor='primary'>
+            <Image src={images.staltz} margin='0 auto 0 -280px' />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <BlockQuote>
+              <Quote textColor='primary'>
+                React/Redux is an inferior paradigm compared to Cycle or Elm.
+              </Quote>
+              <Cite textColor='primary'>André Staltz</Cite><br />
+              <List style={styles.listItemNoBulletPoint}>
+                <Appear>
+                  <ListItem>
+                    Blog Post: <a
+                      size={1}
+                      fit
+                      href={urls.problemsWithReactRedux}
+                    >
+                    Some Problems with React/Redux
+                    </a>
+                  </ListItem>
+                </Appear>
+              </List>
+            </BlockQuote>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Core Points Made
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem>
+                  Too much boilerplate & manual wiring up of events
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Not functional enough, OOP concepts & imperative method calls
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  No clear interface/gate for handling I/O & effects
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Image src={images.interesting} height={600} margin='0 auto 0 auto' />
+          </Slide>
+          <Slide bgColor='tertiary'>
             <Image src={images.cycleTitleScreen} margin='-80px auto 0 -120px' />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Functional?
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem>
+                  Clean & declarative code without classes, "this" context, etc.
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Architecture made up of pure functions
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Side effects are isolated in "drivers"
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Reactive?
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem>
+                  All about data flow & state change propagation
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  100% built on reactive streams (Observables)
+                </ListItem>
+              </Appear>
+              <ListItem style={{ visibility: 'hidden' }}>
+                <a href={urls.futureDeclaredInVar}>
+                  The Whole Future Declared in a Var
+                </a>
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide bgColor='primary'>
+            <Image src={images.everythingStream} margin='-110px auto 0 -100px' />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Reactive?
+            </Heading>
+            <List>
+              <ListItem>
+                All about data flow & state change propagation
+              </ListItem>
+              <ListItem>
+                100% built on reactive streams (Observables)
+              </ListItem>
+              <Appear>
+                <ListItem>
+                  <a href={urls.futureDeclaredInVar}>
+                    The Whole Future Declared in a Var
+                  </a>
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Image src={images.mindBlown} height={600} margin='0 auto 0 auto' />
           </Slide>
           <Slide bgColor='secondary'>
             <Image src={images.cyclePatternDiagram} margin='-50px auto 0 -50px' />
