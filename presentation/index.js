@@ -43,7 +43,9 @@ require('../assets/css/presentation-styles.css')
 const urls = {
   adamTwitter: 'https://twitter.com/adamrecvlohe',
   adamGitHub: 'https://github.com/arecvlohe',
+  bmiCalculatorDemo: 'https://jsbin.com/rucone/3/edit?output',
   counterDataFlow: 'https://glebbahmutov.com/draw-cycle/',
+  counterDemo: 'https://jsbin.com/cimofe/3/edit?output',
   futureDeclaredInVar: 'https://www.youtube.com/watch?v=BfZpr0USIi4',
   joshTwitter: 'https://twitter.com/_joshburgess',
   joshGitHub: 'https://github.com/joshburgess',
@@ -54,6 +56,7 @@ const urls = {
 
 const images = {
   cycleComponent: require('../assets/img/cycle-component.png').replace('/', ''),
+  cycleDevTool: require('../assets/img/cycle-devtool.gif').replace('/', ''),
   cycleLogo: require('../assets/img/cycle-logo.png').replace('/', ''),
   cyclePatternDiagram: require('../assets/img/cycle-pattern-diagram.png').replace('/', ''),
   cycleTitleScreen: require('../assets/img/cycle-title-screen.png').replace('/', ''),
@@ -63,7 +66,8 @@ const images = {
   interesting: require('../assets/img/interesting.jpg').replace('/', ''),
   mainDomDiagram: require('../assets/img/main-dom-diagram.png').replace('/', ''),
   mindBlown: require('../assets/img/mind-blown.gif').replace('/', ''),
-  modelViewIntent: require('../assets/img/model-view-intent.jpg').replace('/', ''),
+  modelViewIntent: require('../assets/img/model-view-intent.png').replace('/', ''),
+  modelViewIntentDiagram: require('../assets/img/model-view-intent-diagram.jpg').replace('/', ''),
   staltz: require('../assets/img/staltz.jpg').replace('/', ''),
   yoda: require('../assets/img/yoda.jpg').replace('/', ''),
 }
@@ -102,6 +106,7 @@ const follow = `
   - [@BenLesh](https://twitter.com/benlesh?lang=en)
   - [@AndreStaltz](https://twitter.com/andrestaltz)
   - [@MattPodwysocki](https://twitter.com/mattpodwysocki)
+  - [@headinthebox](https://twitter.com/headinthebox)
 `
 
 const operators = `
@@ -185,7 +190,7 @@ class Presentation extends Component {
             </Heading>
             <List>
               <Appear>
-                <ListItem textColor='primary'>Similar to C#'s LINQ and functions like map, filter, & reduce in JS, but with two main differences:</ListItem>
+                <ListItem textColor='primary'>Similar to C#'s LINQ and JavaScript Array methods like map, filter, & reduce, but with two main differences:</ListItem>
               </Appear>
               <Appear>
                 <ListItem textColor='primary'>1. <b>Push-based</b> instead of pull-based</ListItem>
@@ -474,28 +479,206 @@ class Presentation extends Component {
           <Slide bgColor='secondary'>
             <Image src={images.mainDomDiagram} margin='-110px auto 0 -100px' />
           </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Cycle Diversity
+            </Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={4} caps textColor='primary' textFont='primary'>
+              Cycle is stream agnostic
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem>
+                  <b>RxJS 4</b>
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  <b>RxJS 5:</b> 4x-6x faster than RxJS 4
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  <b>xstream:</b> Small API & only hot observables, tailored for Cycle
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  <b>Most:</b> Small API & extremely fast, 20x-30x faster than RxJS 5
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={4} caps textColor='primary' textFont='primary'>
+              The same is true for virtual DOMs
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem>
+                  Originally used <b>virtual-dom</b>
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Now uses <b>Snabbdom</b>, a smaller, faster vDOM implementation
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>Great, let's see some code</Heading>
+          </Slide>
           <CodeSlide
             transition={[]}
             lang='js'
             code={require('raw!../assets/code_slides/cycle-counter.example')}
             ranges={[
-              { loc: [0, 29], title: `Building a Counter in Cycle.js` },
+              { loc: [0, 5], title: `Building a Counter in Cycle.js` },
               { loc: [0, 5], note: 'Import your stream library of choice, its run function, hyperscript helpers, & the DOM driver' },
               { loc: [6, 13], note: 'Define the main function, create a merged stream of increments & decrements' },
               { loc: [13, 14], note: `Track the total count by folding over that stream & accumulating the result` },
               { loc: [14, 24], note: 'Create virtual DOM elements to render' },
-              { loc: [25, 28], note: 'Call run, passing it our main function & DOM driver' },
+              { loc: [25, 30], note: 'Call run, passing it our main function & DOM driver' },
             ]}
           />
           <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
-              Counter Data Flow Visualiztion
+              Cycle.js Counter
             </Heading>
             <List style={styles.listItemTitle}>
               <ListItem>
-                <a target='_blank' href={urls.counterDataFlow}>Click here to see how data flows through the counter app</a>
+                <a target='_blank' href={urls.counterDemo}>View demo on JS Bin</a>
+              </ListItem>
+              <ListItem>
+                <a target='_blank' href={urls.counterDataFlow}>View data flow visualization</a>
               </ListItem>
             </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>How about another example?</Heading>
+          </Slide>
+          <CodeSlide
+            transition={[]}
+            lang='js'
+            code={require('raw!../assets/code_slides/cycle-bmi.example')}
+            ranges={[
+              { loc: [0, 5], title: `Building a BMI Calculator in Cycle.js` },
+              { loc: [0, 5], note: 'Import your stream library of choice, its run function, hyperscript helpers, & the DOM driver' },
+              { loc: [6, 13], note: 'Define the main function, create streams for weight & height values' },
+              { loc: [14, 25], note: `Calculate the new BMI any time either height or weight changes with the combineLatest operator` },
+              { loc: [26, 40], note: 'Create virtual DOM elements to render' },
+              { loc: [40, 56], note: 'Create virtual DOM elements to render' },
+              { loc: [57, 62], note: 'Call run, passing it our main function & DOM driver' },
+            ]}
+          />
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Cycle.js BMI Calculator
+            </Heading>
+            <List style={styles.listItemTitle}>
+              <ListItem>
+                <a target='_blank' href={urls.bmiCalculatorDemo}>View demo on JS Bin</a>
+              </ListItem>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>How can we clean this up?</Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>Model-View-Intent</Heading>
+            <List>
+              <Appear>
+                <ListItem textColor='secondary'><b>Intent:</b> listen to the user</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Model:</b> process information</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>View:</b> output back to the user</ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Image src={images.modelViewIntent} margin='-20px auto 0 -80px' height={500} />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>Refactoring the BMI</Heading>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>calculator using MVI</Heading>
+          </Slide>
+          <CodeSlide
+            transition={[]}
+            lang='js'
+            code={require('raw!../assets/code_slides/cycle-bmi-mvi.example')}
+            ranges={[
+              { loc: [0, 5], title: `Refactoring Our Cycle.js BMI Calculator` },
+              { loc: [0, 5], note: 'Import your stream library of choice, its run function, hyperscript helpers, & the DOM driver' },
+              { loc: [6, 15], note: 'Intent: Abstracted user interaction' },
+              { loc: [16, 29], note: `Model: Abstracted data modeling/state transformation` },
+              { loc: [30, 42], note: 'View: Abstracted rendering' },
+              { loc: [42, 55], note: 'View: Abstracted rendering' },
+              { loc: [56, 64], note: 'This is better, but we can make it even more concise' },
+              { loc: [65, 69], note: 'Behold: Model-View-Intent!' },
+              { loc: [70, 78], note: 'Call run, passing it our main function & DOM driver' },
+            ]}
+          />
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>Let's recap</Heading>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>Intent</Heading>
+            <List>
+              <Appear>
+                <ListItem textColor='secondary'><b>Purpose:</b> interpret DOM events as user’s intended actions</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Input:</b> DOM source</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Output:</b> Action Streams</ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>Model</Heading>
+            <List>
+              <Appear>
+                <ListItem textColor='secondary'><b>Purpose:</b> manage state</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Input:</b> Action Streams</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Output:</b> State Stream</ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>View</Heading>
+            <List>
+              <Appear>
+                <ListItem textColor='secondary'><b>Purpose:</b> visually represent state from the Model</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Input:</b> State Stream</ListItem>
+              </Appear>
+              <Appear>
+                <ListItem textColor='secondary'><b>Output:</b> Stream of Virtual DOM nodes as the DOM Driver sink</ListItem>
+              </Appear>
+            </List>
+          </Slide>
+          <Slide bgColor='rgb(245, 244, 240)'>
+            <Image src={images.modelViewIntentDiagram} margin='-60px auto 0 -60px' height={700} />
+          </Slide>
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>One last thing: The Cycle.js DevTool</Heading>
+            <a href='https://github.com/cyclejs/cyclejs/tree/master/devtool'>On GitHub</a>
+            <a href='https://chrome.google.com/webstore/detail/cyclejs/dfgplfmhhmdekalbpejekgfegkonjpfp'>Chrome Extension</a>
+          </Slide>
+          <Slide bgColor='rgb(245, 244, 240)'>
+            <Image src={images.cycleDevTool} margin='-60px auto 0 -60px' height={700} />
           </Slide>
         </Deck>
       </Spectacle>

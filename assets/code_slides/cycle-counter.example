@@ -23,6 +23,8 @@ function main (sources) {
   }
 }
 
-Cycle.run(main, {
+const drivers = {
   DOM: makeDOMDriver('#main-container'),
-})
+}
+
+Cycle.run(main, drivers)

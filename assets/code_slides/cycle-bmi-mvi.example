@@ -1,0 +1,75 @@
+// CYCLEJS BMI CALCULATOR MVI REFACTORING EXAMPLE
+
+import Cycle from '@cycle/rxjs-run'
+import { Observable } from 'rxjs'
+import { div, input, h2, makeDOMDriver } from '@cycle/dom'
+
+function intent (DOMSource) {
+  const changeWeight$ = DOMSource.select('.weight')
+    .events('input')
+    .map(ev => ev.target.value)
+  const changeHeight$ = DOMSource.select('.height')
+    .events('input')
+    .map(ev => ev.target.value)
+  return { changeWeight$, changeHeight$ }
+}
+
+function model ({ changeWeight$, changeHeight$ }) {
+  return Rx.Observable.combineLatest(
+    changeWeight$.startWith(70),
+    changeHeight$.startWith(170),
+    (weight, height) => {
+      const heightMeters = height * 0.01
+      const bmi = Math.round(
+      weight / (heightMeters * heightMeters)
+      )
+      return {bmi, weight, height}
+    }
+  )
+}
+
+function view (state$) {
+  return state$.map(state =>
+      div([
+        div([
+          label('Weight: ' + state.weight + 'kg'),
+          input('.weight', {
+            type: 'range',
+            min: 40,
+            max: 150,
+            value: state.weight,
+          }),
+        ]),
+        div([
+          label('Height: ' + state.height + 'cm'),
+          input('.height', {
+            type: 'range',
+            min: 140,
+            max: 220,
+            value: state.height,
+          }),
+        ]),
+        h2('BMI is ' + state.bmi)
+      ])
+    );
+}
+
+function main (sources) {
+  const changes = intent(sources.DOM)
+  const state$ = model(changes)
+  const vtree$ = view(state$)
+  return {
+    DOM: vtree$,
+  }
+}
+
+// or more concisely:
+const main = sources => ({
+  DOM: view(model(intent(sources.DOM)))
+})
+
+const drivers = {
+  DOM: makeDOMDriver('#main-container'),
+}
+
+Cycle.run(main, drivers)
