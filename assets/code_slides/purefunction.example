@@ -1,5 +1,0 @@
-// SIMPLE EXAMPLES OF PURE FUNCTIONS
-
-const double = x => x * 2
-const sum = (x, y) => x + y
-const filterOverTen = value => value > 10

@@ -27,7 +27,7 @@ import {
 import CodeSlide from 'spectacle-code-slide'
 
 // Import image preloader util
-// import preloader from 'spectacle/lib/utils/preloader'
+import preloader from 'spectacle/lib/utils/preloader'
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default'
@@ -40,15 +40,10 @@ require('normalize.css')
 require('spectacle/lib/themes/default/index.css')
 require('../assets/css/presentation-styles.css')
 
-// const images = {
-//
-// }
-
-// preloader(images)
-
 const urls = {
   adamTwitter: 'https://twitter.com/adamrecvlohe',
   adamGitHub: 'https://github.com/arecvlohe',
+  counterDataFlow: 'https://glebbahmutov.com/draw-cycle/',
   futureDeclaredInVar: 'https://www.youtube.com/watch?v=BfZpr0USIi4',
   joshTwitter: 'https://twitter.com/_joshburgess',
   joshGitHub: 'https://github.com/joshburgess',
@@ -71,6 +66,8 @@ const images = {
   modelViewIntent: require('../assets/img/model-view-intent.jpg').replace('/', ''),
   staltz: require('../assets/img/staltz.jpg').replace('/', ''),
 }
+
+preloader(images)
 
 const theme = createTheme({
   primary: '#58D3D8',
@@ -324,10 +321,10 @@ class Presentation extends Component {
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
-            <Image src={images.cycleLogo} margin='0 auto 0 auto' />
+            <Image src={images.cycleLogo} margin='0 auto' height={500} />
           </Slide>
           <Slide bgColor='primary'>
-            <Image src={images.staltz} margin='0 auto 0 -280px' />
+            <Image src={images.staltz} margin='0 auto 0 -100px' height={500} />
           </Slide>
           <Slide bgColor='tertiary'>
             <BlockQuote>
@@ -373,7 +370,7 @@ class Presentation extends Component {
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
-            <Image src={images.interesting} height={600} margin='0 auto 0 auto' />
+            <Image src={images.interesting} margin='0 auto 0 auto' height={400} />
           </Slide>
           <Slide bgColor='tertiary'>
             <Image src={images.cycleTitleScreen} margin='-80px auto 0 -120px' />
@@ -423,7 +420,7 @@ class Presentation extends Component {
             </List>
           </Slide>
           <Slide bgColor='primary'>
-            <Image src={images.everythingStream} margin='-110px auto 0 -100px' />
+            <Image src={images.everythingStream} margin='-60px auto 0 -60px' height={700} />
           </Slide>
           <Slide bgColor='tertiary'>
             <Heading size={1} caps fit textColor='primary' textFont='primary'>
@@ -446,7 +443,7 @@ class Presentation extends Component {
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
-            <Image src={images.mindBlown} height={600} margin='0 auto 0 auto' />
+            <Image src={images.mindBlown} margin='0 auto' height={400} />
           </Slide>
           <Slide bgColor='secondary'>
             <Image src={images.cyclePatternDiagram} margin='-50px auto 0 -50px' />
@@ -459,6 +456,29 @@ class Presentation extends Component {
           </Slide>
           <Slide bgColor='secondary'>
             <Image src={images.mainDomDiagram} margin='-110px auto 0 -100px' />
+          </Slide>
+          <CodeSlide
+            transition={[]}
+            lang='js'
+            code={require('raw!../assets/code_slides/cycle-counter.example')}
+            ranges={[
+              { loc: [0, 29], title: `Building a Counter in Cycle.js` },
+              { loc: [0, 5], note: 'Import your stream library of choice, its run function, hyperscript helpers, & the DOM driver' },
+              { loc: [6, 13], note: 'Define the main function, create a merged stream of increments & decrements' },
+              { loc: [13, 14], note: `Track the total count by folding over that stream & accumulating the result` },
+              { loc: [14, 24], note: 'Create virtual DOM elements to render' },
+              { loc: [25, 28], note: 'Call run, passing it our main function & DOM driver' },
+            ]}
+          />
+          <Slide bgColor='tertiary'>
+            <Heading size={1} caps fit textColor='primary' textFont='primary'>
+              Counter Data Flow Visualiztion
+            </Heading>
+            <List style={styles.listItemTitle}>
+              <ListItem>
+                <a target='_blank' href={urls.counterDataFlow}>Click here to see how data flows through the counter app</a>
+              </ListItem>
+            </List>
           </Slide>
         </Deck>
       </Spectacle>
