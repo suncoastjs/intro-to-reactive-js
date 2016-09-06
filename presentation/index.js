@@ -390,7 +390,7 @@ class Presentation extends Component {
               </Appear>
               <Appear>
                 <ListItem>
-                  Architecture made up of pure functions
+                  App architecutre composed of pure functions
                 </ListItem>
               </Appear>
               <Appear>
