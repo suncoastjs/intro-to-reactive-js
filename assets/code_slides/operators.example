@@ -1,0 +1,10 @@
+// Observable
+
+fromEvent(element, event) => Observable
+
+// Operators
+// http://rxmarbles.com/
+
+mapTo(Observable) => Observable
+merge(Observable1, Observable2, etc.) => Observable
+scan(accumulator, Observable) => Observable
