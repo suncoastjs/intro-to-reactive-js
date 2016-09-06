@@ -20,7 +20,7 @@ import {
   Quote,
   Slide,
   Spectacle,
-  Text,
+  // Text,
 } from 'spectacle'
 
 // Import code presentation component
@@ -164,7 +164,6 @@ class Presentation extends Component {
                Some Info on the Not So Obvious
             </Heading>
             <List>
-<<<<<<< HEAD
               <Appear>
                 <ListItem textColor='primary'>RxJS = Reactive Extensions for JavaScript</ListItem>
               </Appear>
@@ -186,12 +185,6 @@ class Presentation extends Component {
               <Appear>
                 <ListItem textColor='primary'>Like map, filter, & reduce in JS, but async over time</ListItem>
               </Appear>
-=======
-              <ListItem textColor='primary'>RxJS stands for Reactive Extensions for JavaScript</ListItem>
-              <ListItem textColor='primary'>Inspired by linq.js</ListItem>
-              <ListItem textColor='primary'>Erik Meijer (@headinthebox) created LINQ and Rx</ListItem>
-              <ListItem textColor='primary'>Matthew Podwysocki (@mattpodwysocki) ported Rx to RxJS</ListItem>
->>>>>>> facf540c48919d2d137eb8f84bd68d622145a01e
             </List>
           </Slide>
           <Slide bgColor='tertiary'>
