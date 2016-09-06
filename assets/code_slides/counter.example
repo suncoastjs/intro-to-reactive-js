@@ -1,0 +1,39 @@
+// RxJS Counter
+// http://codepen.io/arecvlohe/pen/ALjxRV
+
+const more = document.createElement('button')
+more.textContent = 'More'
+
+const less = document.createElement('button')
+less.textContent = 'Less'
+
+const text = document.createElement('p')
+text.textContent = '0'
+
+const elements = [more, less, text]
+
+elements.forEach(el => { document.body.appendChild(el) })
+
+// Bring in the Observable
+const { Observable } = Rx
+
+// Create an Observable for each click event
+const add = Observable.fromEvent(more, 'click')
+const remove = Observable.fromEvent(less, 'click')
+
+// Use the mapTo operator to map each click event
+const addOne = add.mapTo(1)
+const removeOne = remove.mapTo(-1)
+
+// Create another Observable that merges the click events
+const combine = Observable.merge(addOne, removeOne)
+
+// Calculate the sum of the merged Observable
+const calculate = combine.scan((acc, curr) => acc + curr)
+
+// Subscribe to calculate to render each new sum
+calculate.subscribe(
+  x => { text.textContent = x },
+  err => { console.log(err) },
+  () => { console.log('complete') }
+)
